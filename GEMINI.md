@@ -39,12 +39,13 @@
 
 ### Workspace Documents & Scripts
 - **Prompt Guides:** `act_1_production_prompts_trim_sheet.md`, `act_2_production_prompts_edit_guide.md`, `act_2b_chorus1b_prompts.md`, `act_3_production_prompts.md`
-- **Assembly Scripts:** `01_assemble_act1.sh`, `05_assemble_act2.sh`, `06_chorus1_tag.sh`
+- **Assembly Scripts:** `01_assemble_act1.sh`, `05_assemble_act2.sh`, `06_chorus1_tag.sh`, `07_assemble_chorus1b.sh`
 
-### Current Assembly State (`0:00.00 – 0:32.125`)
+### Current Assembly State (`0:00.00 – 0:48.125`)
 - **Act 1 (`0:00.00 – 0:15.42`, Shots `#01`–`#09`, `370f`):** Assembled via `01_assemble_act1.sh` (combined inside `act1_2_rough_cut.mp4`).
 - **Act 2A / Chorus 1A (`0:15.42 – 0:30.75`, Shots `#10A`–`#18`, `368f`):** Complete (`act2_rough_cut.mp4`, `act1_2_rough_cut.mp4`, `act1_2_with_music.mp4` — `738f` total).
-- **Chorus 1A Closing Tag (`0:30.75 – 0:32.125`, `33f`, zero Flow credits):** Assembled via `06_chorus1_tag.sh` (`chorus1_tag_rough_cut.mp4` = `33f`, `act1_2_tagged_rough_cut.mp4` = `771f`, `act1_2_tagged_with_music.mp4` = `771f` / `32.125s`), resolving *"...milte hain jab — Go, go!"* and landing dead-on the `0:32.125` Chorus 1B downbeat.
+- **Chorus 1A Closing Tag (`0:30.75 – 0:32.125`, `33f`, zero Flow credits):** Assembled via `06_chorus1_tag.sh` (`chorus1_tag_rough_cut.mp4` = `33f`, `act1_2_tagged_rough_cut.mp4` = `771f`, `act1_2_tagged_with_music.mp4` = `771f` / `32.125s`).
+- **Act 2B / Chorus 1B v2 (`0:32.125 – 0:48.125`, `384f`, zero Act 1/2 recycling + 2 native lip-sync hooks):** Complete via `07_assemble_chorus1b.sh` (`chorus1b_rough_cut.mp4` = `384f`, `act1_2b_rough_cut.mp4` = `1155f`, `act1_2b_with_music.mp4` = `1155f` / `48.125s`), ending on `shot_c1b_t1` (`90°` cyan spotlight orbit) dead-on the `0:48.125` Act 3 rap entry.
 
 ### Verified `120.00 BPM` Song Structure Map (`0:00.00 – 2:54.58`)
 
@@ -52,7 +53,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **Intro (Act 1)** | `0:00.00 – 0:16.12` | 8 bars / 32b | `387f` *(cut at `370f`)* | **Done** • Instrumental + adlibs (*"Ooh yeah"*, *"Check it"*, *"Let's go"*, *"Tum aur main, let's make it go"*) • `0:15.1–0:16.1` vocal chop riser |
 | **Chorus 1A (Act 2A + Tag)** | `0:16.12 – 0:32.12` | 8 bars / 32b | `384f` *(total w/ tag `771f`)* | **Done** • *"Aaja mere paas..."* → *"Beat pe hum dono milte hain jab"* • `0:31.40–0:32.10` bass dropout + *"Go, go!"* |
-| **Chorus 1B (Act 2B)** | `0:32.12 – 0:48.12` | 8 bars / 32b | `384f` | **Prompts Ready** (`act_2b_chorus1b_prompts.md`) • Hard bass drop *"Aaja mere paas..."* repeat • `0:46.12–0:47.50` bass dropout + `0:47.50` drum fill |
+| **Chorus 1B (Act 2B)** | `0:32.12 – 0:48.12` | 8 bars / 32b | `384f` *(total `1155f`)* | **Done** (`07_assemble_chorus1b.sh`) • Zero-recycle v2 w/ `#C1B-S1`/`#C1B-S2` lip-sync, top-down spin, floor footwork, & `#C1B-T1` orbit |
 | **Rap Verse 1 (Act 3)** | `0:48.12 – 1:04.12` | 8 bars / 32b | `384f` | **Prompts Ready** (`act_3_production_prompts.md`) • *"Beat pe focus..."* • `0:54.12–0:56.12` bass-dropout echo • `0:56.12` bass slam • `1:03.50` bass cut |
 | **Pre-Chorus 1** | `1:04.12 – 1:16.12` | 6 bars / 24b | `288f` | Pending • *"Baahon mein aaja... door na jaa... Is crazy night ka maza tu utha!"* (`1:12.12` filtered kick, `1:14.12` riser) |
 | **Chorus 2A** | `1:16.12 – 1:32.12` | 8 bars / 32b | `384f` | Pending • Full Chorus cycle • `1:30.12–1:32.10` bass dropout + *"Yeah!"* |
@@ -75,4 +76,4 @@
 ---
 
 ## 5. Antigravity Agent Starter Prompt
-> `Read GEMINI.md, act_2b_chorus1b_prompts.md, and act_3_production_prompts.md to load our verified 120.00 BPM production rules, sunglasses continuity, and current timeline state (0:00.00–0:32.125 / 771f). Verify the newly generated Chorus 1B (shot_c1b_1..4) and Act 3 (shot_20..27) Google Flow clips in the workspace, then write and run the beat-synced FFmpeg assembly scripts for Chorus 1B (0:32.125–0:48.125 / 384f) and Act 3 (0:48.125–1:04.125 / 384f), stitching them onto act1_2_tagged_rough_cut.mp4 and muxing Club_Ka_Bwaal.mp3.`
+> `Read GEMINI.md and act_3_production_prompts.md to load our verified 120.00 BPM rules, sunglasses continuity, and current timeline state (0:00.00–0:48.125 / 1155f via 07_assemble_chorus1b.sh). Inspect the new Act 3 clips (shot_20..shot_27) in the workspace, syllable-sync Aryan's native rap lip-sync clips (#20, #23, #24, #25) to Club_Ka_Bwaal.mp3 via FFmpeg setpts, then write and run 08_assemble_act3.sh (0:48.125–1:04.125 / 384f) stitched onto act1_2b_rough_cut.mp4 (total 1539f) and muxed with Club_Ka_Bwaal.mp3. Also draft Pre-Chorus 1 (1:04.125–1:16.125 / 288f) prompts when ready.`
