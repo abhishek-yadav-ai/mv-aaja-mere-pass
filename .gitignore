@@ -1,0 +1,17 @@
+# macOS metadata
+.DS_Store
+
+# Regeneratable FFmpeg intermediates & concat lists
+trimmed/
+trimmed_*/
+concat_*.txt
+
+# Rendered exports & test previews
+*_rough_cut.mp4
+*_with_music.mp4
+preview_*.mp4
+
+# Raw Google Flow clips & master audio (keep local / back up separately; repo has no Git LFS)
+*.mp4
+*.mp3
+*.wav
